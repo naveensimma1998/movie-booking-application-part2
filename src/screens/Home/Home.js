@@ -198,11 +198,14 @@ filterApplyHandler = () => {
                 <GridList cols={5} className={classes.gridListUpcomingMovies}>
                         {moviesData.map((tile) => (
                             <GridListTile key={tile.id} className="poster-grid" >
+
+                            
                                 <img
                                     src={tile.poster_url}
                                     alt={tile.title}
                                     className="movie-poster"
                                 />
+                                
                                 <GridListTileBar title={tile.title} />
                             </GridListTile>
                         ))}

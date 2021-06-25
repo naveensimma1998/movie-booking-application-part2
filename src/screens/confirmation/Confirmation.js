@@ -16,7 +16,7 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import green from '@material-ui/core/colors/green';
-import { Link } from 'react-router-dom';
+import { Link } from 'react';
 
 const styles = theme => ({
   close: {
@@ -24,6 +24,8 @@ const styles = theme => ({
     height: theme.spacing.unit * 4,
   },
 
+
+  
   success: {
     color: green[600],
   }

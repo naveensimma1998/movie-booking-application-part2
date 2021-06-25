@@ -8,6 +8,7 @@ const artists = [
         "profile_url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Marlon_Brando_%28cropped%29.jpg",
         "wiki_url": "https://en.wikipedia.org/wiki/Marlon_Brando"
     },
+    
     {
         "id": "A2",
         "first_name": "Al",
@@ -16,6 +17,7 @@ const artists = [
         "profile_description": "Alfredo James Pacino is an American actor and filmmaker. Pacino has had a career spanning over five decades, during which time he has received numerous accolades and honors both competitive and honorary, among them an Academy Award, two Tony Awards, two Primetime Emmy Awards, a British Academy Film Award, four Golden Globe Awards, the Lifetime Achievement Award from the American Film Institute, the Golden Globe Cecil B. DeMille Award, and the National Medal of Arts. He is also one of few performers to have won a competitive Oscar, an Emmy, and a Tony Award for acting, dubbed the 'Triple Crown of Acting'.",
         "wiki_url": "https://en.wikipedia.org/wiki/Pedro_Pascal"
     },
+
     {
         "id": "A3",
         "first_name": "Christian",

@@ -46,7 +46,9 @@ class Details extends Component {
             }]
         }
     }
-    UNSAFE_componentWillMount() {
+    
+
+    componentWillMount() {
         let currentState = this.state;
         currentState.movie = moviesData.filter((mov) => {
             return mov.id === this.props.movieId
@@ -59,6 +61,7 @@ class Details extends Component {
     artistClickHandler = (url) => {
         window.location = url;
     }
+    
     starClickHandler = (id) => {
         let starIconList = [];
         for (let star of this.state.starIcons) {
