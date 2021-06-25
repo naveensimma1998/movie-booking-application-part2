@@ -1,0 +1,48 @@
+#upcoming-movies{
+    padding: 8px;
+    background-color: #ff9999;
+    text-align: center;
+    font-size: 1rem;
+}
+.poster-grid {
+    cursor: pointer;
+}
+.release-movie-poster{
+    height: 100%;
+    width: auto;
+
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-container>div {
+    margin: 16px;
+}
+.left {
+    width: 76%;
+}
+
+.right {
+    padding-top: 20px;
+    width: 24%;
+}
+.released-movie-grid-item {
+    margin: 15px;
+    cursor: pointer;
+}
+@media (max-width: 992px) {
+    .flex-container {
+        flex-direction: column;
+    }
+    .left {
+        width: 100%;
+    }
+    .right {
+        width: 90%;
+    }
+    .released-movie-grid-item {
+        margin: 8px;
+    }
+}
