@@ -84,8 +84,7 @@ class Details extends Component {
         }
         return (
             <div className="details">
-                <Header/> 
-                <Button variant="contained" color="primary" style={{float:"right", position:"absolute" ,right:100,top:7}} > BOOK NOW  </Button> 
+                <Header showBookShowButton="true" /> 
                 <div className="back">
                     <Typography onClick={this.backToHomeHandler}>
                         &#60; Back to Home
