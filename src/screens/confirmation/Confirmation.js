@@ -23,6 +23,7 @@ const styles = theme => ({
     width: theme.spacing.unit * 4,
     height: theme.spacing.unit * 4,
   },
+
   success: {
     color: green[600],
   }

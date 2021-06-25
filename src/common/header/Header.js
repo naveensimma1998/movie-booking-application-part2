@@ -154,7 +154,6 @@ class Header extends Component {
     };
     const requestOptions = {
       method: "POST",
-
       body: JSON.stringify(registerPayload),
     };
     fetch("http://localhost:8085/api/v1/signup/", requestOptions)

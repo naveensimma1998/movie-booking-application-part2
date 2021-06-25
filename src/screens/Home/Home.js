@@ -72,7 +72,58 @@ class Home extends Component {
         }
     }
 
-    movieNameChangeHandler = event => {
+    componentWillMount() {
+        // Get upcoming movies
+    
+        fetch(
+          "http://localhost:8085/api/v1/movies?page=1&limit=10&status=published",
+          { method: "GET" }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            this.setState({
+              upcomingMovies: data.movies,
+            });
+          });
+    
+        // Get released movies
+    
+        fetch(
+          "http://localhost:8085/api/v1/movies?page=1&limit=10&status=Released",
+          { method: "GET" }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            this.setState({
+              releasedMovies: data.movies,
+            });
+          });
+    
+        // Get filters
+    
+        fetch("http://localhost:8085/api/v1/genres", { method: "GET" })
+          .then((response) => response.json())
+          .then((data) => {
+            this.setState({
+              genresList: data.genres,
+            });
+          });
+    
+        // Get artists
+    
+        fetch("http://localhost:8085/api/v1/artists?page=1&limit=10", {
+          method: "GET",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            this.setState({
+              artistsList: data.artists,
+            });
+          });
+      }
+
+
+movieNameChangeHandler = event => {
         this.setState({ movieName: event.target.value });
       }
 
@@ -95,6 +146,39 @@ genreSelectHandler = event => {
   movieClickHandler = (movieId) => {
     ReactDOM.render(<Details movieId={movieId} />, document.getElementById('root'));
 }
+
+filterApplyHandler = () => {
+    let queryString = "&status=Released";
+    if (this.state.movieName !== "") {
+      queryString += "&title=" + this.state.movieName;
+    }
+    if (this.state.genres.length > 0) {
+      queryString += "&genres=" + this.state.genres.toString();
+    }
+    if (this.state.artists.length > 0) {
+      queryString += "&artists=" + this.state.artists.toString();
+    }
+    if (this.state.releaseDateStart !== "") {
+      queryString += "&start_date=" + this.state.releaseDateStart;
+    }
+    if (this.state.releaseDateEnd !== "") {
+      queryString += "&end_date=" + this.state.releaseDateEnd;
+    }
+
+    fetch( "http://localhost:8085/api/v1/movies?page=1&limit=10" +
+    encodeURI(queryString), {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+            releasedMovies: data.movies,
+        });
+      });
+
+  };
+
+
     render() {
         const { classes } = this.props;
         var filterMovie=moviesData.filter((movie)=>{
@@ -212,7 +296,7 @@ genreSelectHandler = event => {
     <br /><br />
 
  <FormControl className={classes.formControl}>
- <Button  variant="contained" color="primary"> APPLY </Button>
+ <Button  variant="contained" color="primary" onClick={() => this.filterApplyHandler()}> APPLY </Button>
  </FormControl>
 
 
